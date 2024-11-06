@@ -42,7 +42,9 @@
     "match": [
       "https://steamcommunity.com/market/listings/*"
     ],
-    "require": [],
+    "require": [
+      "https://erisberg.github.io/tm_smext/assets/css/style.css?v=fc8a67bbf7f480efbcc7f0aee841620df4b7373f"
+    ],
     "grant": [
       "GM.xmlHttpRequest"
     ],

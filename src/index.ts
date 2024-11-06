@@ -3,10 +3,6 @@ import fetchAdapter from "./adapter";
 
 axios.defaults.adapter = fetchAdapter;
 
-const myCss = GM_getResourceText("JQUERY_UI");
-console.log(myCss);
-GM_addStyle(myCss);
-
 $("head").append(
   `<link rel="stylesheet" href="https://erisberg.github.io/tm_smext/public/style.css" type="text/css" />`
 );
@@ -28,14 +24,6 @@ const itemDetails: ItemDetails = { itemName: "" };
 const customerDetails = {};
 
 const getID = (id: string) => `${ID_PREFIX}_${id}`;
-
-document.addEventListener("menuToggle", (e: CustomEvent<MenuState>) => {
-  const icon = $("#" + getID("btnToggleIcon"));
-
-  $(icon).css({
-    transform: `rotate(${e.detail.isOpen ? "90" : "0"}deg)`,
-  });
-});
 
 function main() {
   getItemDetails();
@@ -81,14 +69,18 @@ function createMenu() {
 
   $("#" + getID("btnToggle")).on("click", () => {
     menu.toggle();
+    const isOpen = menu.css("display") !== "none";
+    onMenuToggle(isOpen);
+  });
+}
 
-    const event = new CustomEvent<MenuState>("menuToggle", {
-      detail: {
-        isOpen: isOpen,
-      },
-    });
+function onMenuToggle(isOpen: boolean) {
+  const icon = $("#" + getID("btnToggleIcon"));
 
-    dispatchEvent(event);
+  const rotation = `rotate(${isOpen ? "90" : "0"}deg)`;
+
+  $(icon).css({
+    transform: rotation,
   });
 }
 

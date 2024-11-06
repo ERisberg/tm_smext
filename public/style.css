@@ -9,6 +9,9 @@
   position: absolute;
   top: 0;
   left: 0;
+  background: black;
+  border-radius: 6px;
+  color: white;
 }
 
 .sms_btn {

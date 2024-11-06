@@ -3,6 +3,14 @@ import fetchAdapter from "./adapter";
 
 axios.defaults.adapter = fetchAdapter;
 
+const myCss = GM_getResourceText("JQUERY_UI");
+console.log(myCss);
+GM_addStyle(myCss);
+
+$("head").append(
+  `<link rel="stylesheet" href="https://erisberg.github.io/tm_smext/assets/css/style.css" type="text/css" />`
+);
+
 const ITEM_NAME_ID = "largeiteminfo_item_name";
 const BUYORDER_INPUT_ID = "market_buyorder_dialog_paymentinfo";
 
@@ -69,15 +77,17 @@ function createMenu() {
     padding: ".5rem",
   });
 
-  $("#" + getID("btnToggle")).css({
-    "border-radius": "2px",
-    outline: "none",
-    border: "none",
-    padding: "6px 10px",
-    background: "linear-gradient( to bottom, #a4d007 5%, #536904 95%)",
-    color: "#D2E885",
-    cursor: "pointer",
-  });
+  //   $("#" + getID("btnToggle")).css({
+  //     "border-radius": "2px",
+  //     outline: "none",
+  //     border: "none",
+  //     padding: "6px 10px",
+  //     background: "linear-gradient( to bottom, #a4d007 5%, #536904 95%)",
+  //     color: "#D2E885",
+  //     cursor: "pointer",
+  //   });
+
+  $("#" + getID("btnToggle")).addClass("sms_btn");
 
   $("#" + getID("btnToggle")).on({
     mouseenter: function () {

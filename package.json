@@ -42,14 +42,17 @@
     "match": [
       "https://steamcommunity.com/market/listings/*"
     ],
-    "require": [
-      "https://erisberg.github.io/tm_smext/assets/css/style.css?v=fc8a67bbf7f480efbcc7f0aee841620df4b7373f"
-    ],
+    "require": [],
     "grant": [
-      "GM.xmlHttpRequest"
+      "GM.xmlHttpRequest",
+      "GM_getResourceText",
+      "GM_addStyle"
     ],
     "exclude": [],
-    "resources": [],
+    "resources": [
+      "IMPORTED_CSS https://erisberg.github.io/tm_smext/assets/css/style.css",
+      "JQUERY_UI http://cdn.abc.com/jquery-ui.min.css"
+    ],
     "keyedResources": {}
   },
   "dependencies": {

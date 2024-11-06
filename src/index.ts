@@ -8,7 +8,7 @@ console.log(myCss);
 GM_addStyle(myCss);
 
 $("head").append(
-  `<link rel="stylesheet" href="https://erisberg.github.io/tm_smext/assets/css/style.css" type="text/css" />`
+  `<link rel="stylesheet" href="https://erisberg.github.io/tm_smext/public/style.css" type="text/css" />`
 );
 
 const ITEM_NAME_ID = "largeiteminfo_item_name";

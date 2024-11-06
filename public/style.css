@@ -12,11 +12,11 @@
 }
 
 .sms_btn {
-  border-radius: "2px";
-  outline: "none";
-  border: "none";
-  padding: "6px 10px";
-  background: "linear-gradient( to bottom, #a4d007 5%, #536904 95%)";
-  color: "#D2E885";
-  cursor: "pointer";
+  border-radius: 2px;
+  outline: none;
+  border: none;
+  padding: 6px 10px;
+  background: linear-gradient(to bottom, #a4d007 5%, #536904 95%);
+  color: #d2e885;
+  cursor: pointer;
 }

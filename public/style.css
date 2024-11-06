@@ -20,3 +20,13 @@
   color: #d2e885;
   cursor: pointer;
 }
+
+.sms_btn:hover {
+  background: linear-gradient(to bottom, #b6d908 5%, #80a006 95%);
+}
+
+.sms_btnToggleIcon {
+  display: inline-block;
+  transition: "transform .2s ease";
+  font-weight: "bold";
+}

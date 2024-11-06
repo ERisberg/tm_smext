@@ -60,65 +60,31 @@ function getCustomerDetails() {
 
 function createMenu() {
   $("body").append(`
-        <div id="${getID("wrapper")}">
-            <button id="${getID("btnToggle")}"><span id="${getID(
-    "btnToggleIcon"
-  )}">&#10095;</span> Menu</button>
+        <div class="sms_wrapper" id="${getID("wrapper")}">
+            <button class="sms_btn" id="${getID("btnToggle")}">
+                <span class="sms_btnToggleIcon" id="${getID(
+                  "btnToggleIcon"
+                )}">&#10095;</span> Menu
+            </button>
             <div id="${getID("menu")}">
                 <p>Hello world</p>
             </div>
         </div>
     `);
 
-  $("#" + getID("wrapper")).css({
-    position: "absolute",
-    top: 0,
-    left: 0,
-    padding: ".5rem",
-  });
-
-  //   $("#" + getID("btnToggle")).css({
-  //     "border-radius": "2px",
-  //     outline: "none",
-  //     border: "none",
-  //     padding: "6px 10px",
-  //     background: "linear-gradient( to bottom, #a4d007 5%, #536904 95%)",
-  //     color: "#D2E885",
-  //     cursor: "pointer",
-  //   });
-
-  $("#" + getID("btnToggle")).addClass("sms_btn");
-
-  $("#" + getID("btnToggle")).on({
-    mouseenter: function () {
-      $(this).css({
-        background: "linear-gradient( to bottom, #b6d908 5%, #80a006 95%)",
-      });
-    },
-    mouseleave: function () {
-      $(this).css({
-        background: "linear-gradient( to bottom, #a4d007 5%, #536904 95%)",
-      });
-    },
-  });
-
   const menu = $("#" + getID("menu"));
+  const isOpen = menu.css("display") !== "none";
+
   $("#" + getID("btnToggleIcon")).css({
-    display: "inline-block",
-    transition: "transform .2s ease",
-    "font-weight": "bold",
-    transform: `rotate(${menu.css("display") !== "none" ? "90" : "0"}deg)`,
+    transform: `rotate(${isOpen ? "90" : "0"}deg)`,
   });
 
   $("#" + getID("btnToggle")).on("click", () => {
-    const menu = $("#" + getID("menu"));
     menu.toggle();
 
-    const menuOpen = menu.css("display") !== "none";
-
-    const event = new CustomEvent("menuToggle", {
+    const event = new CustomEvent<MenuState>("menuToggle", {
       detail: {
-        open: menuOpen,
+        isOpen: isOpen,
       },
     });
 

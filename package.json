@@ -1,0 +1,58 @@
+{
+  "name": "tm_smext",
+  "version": "0.0.1",
+  "description": "Steam market utility",
+  "main": "userscript/index.user.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack/prod.ts",
+    "dev": "webpack --config webpack/dev.ts",
+    "build:watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pboymt/userscript-typescript-template.git"
+  },
+  "keywords": [],
+  "author": "pboymt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pboymt/userscript-typescript-template/issues"
+  },
+  "homepage": "https://github.com/pboymt/userscript-typescript-template#readme",
+  "devDependencies": {
+    "@types/jquery": "^3.5.32",
+    "@types/node": "^18.15.11",
+    "@types/prettier": "^2.7.0",
+    "@types/tampermonkey": "^4.0.5",
+    "@types/webpack": "^5.28.0",
+    "prettier": "^2.7.1",
+    "terser-webpack-plugin": "^5.3.6",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^5.0.4",
+    "webpack": "^5.64.3",
+    "webpack-cli": "^5.0.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "userscript": {
+    "require-template": "https://cdn.jsdelivr.net/npm/${dependencyName}@${dependencyVersion}",
+    "namespace": "http://tampermonkey.net/",
+    "license": "https://opensource.org/licenses/MIT",
+    "match": [
+      "https://steamcommunity.com/market/listings/*"
+    ],
+    "require": [],
+    "grant": [
+      "GM.xmlHttpRequest"
+    ],
+    "exclude": [],
+    "resources": [],
+    "keyedResources": {}
+  },
+  "dependencies": {
+    "@trim21/gm-fetch": "^0.1.16",
+    "axios": "^1.7.7",
+    "jquery": "^3.7.1"
+  }
+}
